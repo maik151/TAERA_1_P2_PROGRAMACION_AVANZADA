@@ -1,0 +1,211 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Proyects\\Taller_REST_API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|c:\\proyects\\taller_rest_api\\taller_rest_api\\controllers\\controllercrud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|solutionrelative:taller_rest_api\\controllers\\controllercrud.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|c:\\proyects\\taller_rest_api\\taller_rest_api\\repository\\activorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|solutionrelative:taller_rest_api\\repository\\activorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|c:\\proyects\\taller_rest_api\\taller_rest_api\\services\\activoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|solutionrelative:taller_rest_api\\services\\activoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|c:\\proyects\\taller_rest_api\\taller_rest_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|solutionrelative:taller_rest_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|c:\\proyects\\taller_rest_api\\taller_rest_api\\entities\\activodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|solutionrelative:taller_rest_api\\entities\\activodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|c:\\proyects\\taller_rest_api\\taller_rest_api\\repository\\testrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|solutionrelative:taller_rest_api\\repository\\testrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|c:\\proyects\\taller_rest_api\\taller_rest_api\\infraestructure\\oracleconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|solutionrelative:taller_rest_api\\infraestructure\\oracleconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|c:\\proyects\\taller_rest_api\\taller_rest_api\\infraestructure\\idbconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|solutionrelative:taller_rest_api\\infraestructure\\idbconnectionfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|c:\\proyects\\taller_rest_api\\taller_rest_api\\taller_rest_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|solutionrelative:taller_rest_api\\taller_rest_api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|c:\\proyects\\taller_rest_api\\taller_rest_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|solutionrelative:taller_rest_api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|c:\\proyects\\taller_rest_api\\taller_rest_api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41B04218-5612-4F25-8A4A-DFD9D32A8A6F}|Taller_REST_API\\Taller_REST_API.csproj|solutionrelative:taller_rest_api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ActivoService.cs",
+              "DocumentMoniker": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Services\\ActivoService.cs",
+              "RelativeDocumentMoniker": "Taller_REST_API\\Services\\ActivoService.cs",
+              "ToolTip": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Services\\ActivoService.cs",
+              "RelativeToolTip": "Taller_REST_API\\Services\\ActivoService.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAhwBEAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T04:35:15.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ActivoRepository.cs",
+              "DocumentMoniker": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Repository\\ActivoRepository.cs",
+              "RelativeDocumentMoniker": "Taller_REST_API\\Repository\\ActivoRepository.cs",
+              "ToolTip": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Repository\\ActivoRepository.cs",
+              "RelativeToolTip": "Taller_REST_API\\Repository\\ActivoRepository.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAIA5wCMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T04:09:45.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ActivoDto.cs",
+              "DocumentMoniker": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Entities\\ActivoDto.cs",
+              "RelativeDocumentMoniker": "Taller_REST_API\\Entities\\ActivoDto.cs",
+              "ToolTip": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Entities\\ActivoDto.cs",
+              "RelativeToolTip": "Taller_REST_API\\Entities\\ActivoDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T04:08:45.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ControllerCRUD.cs",
+              "DocumentMoniker": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Controllers\\ControllerCRUD.cs",
+              "RelativeDocumentMoniker": "Taller_REST_API\\Controllers\\ControllerCRUD.cs",
+              "ToolTip": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Controllers\\ControllerCRUD.cs",
+              "RelativeToolTip": "Taller_REST_API\\Controllers\\ControllerCRUD.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAmwC4AAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T03:53:53.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TestRepository.cs",
+              "DocumentMoniker": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Repository\\TestRepository.cs",
+              "RelativeDocumentMoniker": "Taller_REST_API\\Repository\\TestRepository.cs",
+              "ToolTip": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Repository\\TestRepository.cs",
+              "RelativeToolTip": "Taller_REST_API\\Repository\\TestRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T03:47:55.433Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Program.cs",
+              "RelativeDocumentMoniker": "Taller_REST_API\\Program.cs",
+              "ToolTip": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Program.cs",
+              "RelativeToolTip": "Taller_REST_API\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACkAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T03:39:45.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OracleConnectionFactory.cs",
+              "DocumentMoniker": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Infraestructure\\OracleConnectionFactory.cs",
+              "RelativeDocumentMoniker": "Taller_REST_API\\Infraestructure\\OracleConnectionFactory.cs",
+              "ToolTip": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Infraestructure\\OracleConnectionFactory.cs",
+              "RelativeToolTip": "Taller_REST_API\\Infraestructure\\OracleConnectionFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T03:27:45.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IDbConnectionFactory.cs",
+              "DocumentMoniker": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Infraestructure\\IDbConnectionFactory.cs",
+              "RelativeDocumentMoniker": "Taller_REST_API\\Infraestructure\\IDbConnectionFactory.cs",
+              "ToolTip": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Infraestructure\\IDbConnectionFactory.cs",
+              "RelativeToolTip": "Taller_REST_API\\Infraestructure\\IDbConnectionFactory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T03:26:59.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\appsettings.json",
+              "RelativeDocumentMoniker": "Taller_REST_API\\appsettings.json",
+              "ToolTip": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\appsettings.json",
+              "RelativeToolTip": "Taller_REST_API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-18T03:25:19.777Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Taller_REST_API\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Taller_REST_API\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAUAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T03:17:59.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Taller_REST_API",
+              "DocumentMoniker": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Taller_REST_API.csproj",
+              "RelativeDocumentMoniker": "Taller_REST_API\\Taller_REST_API.csproj",
+              "ToolTip": "C:\\Proyects\\Taller_REST_API\\Taller_REST_API\\Taller_REST_API.csproj",
+              "RelativeToolTip": "Taller_REST_API\\Taller_REST_API.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-18T03:15:56.499Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
