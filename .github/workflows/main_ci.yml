@@ -19,7 +19,7 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Restore dependencies
-      # CORRECCIÓN: Usamos el nombre real de tu solución y la carpeta contenedora
+      # Restauramos apuntando al archivo SLN específico
       run: dotnet restore ./Taller_REST_API/Taller_REST_API.sln
       
     - name: Build API
@@ -29,8 +29,10 @@ jobs:
       run: dotnet test ./Taller_REST_API/Taller_REST_API.sln --no-build --verbosity normal
       
     - name: Docker Build (Backend)
-      # CORRECCIÓN: Apuntamos al archivo DockerFile (con F mayúscula) dentro de la carpeta
-      run: docker build . -f ./Taller_REST_API/DockerFile -t mi-app-backend:latest
+      # CORRECCIÓN CRÍTICA:
+      # 1. El contexto de construcción es './Taller_REST_API' (la carpeta del proyecto)
+      # 2. Apuntamos al archivo DockerFile específico (respetando la F mayúscula)
+      run: docker build ./Taller_REST_API -f ./Taller_REST_API/DockerFile -t mi-app-backend:latest
 
   # --- JOB 2: FRONTEND ---
   build-frontend:
@@ -44,7 +46,6 @@ jobs:
         node-version: '20'
         
     - name: Install Dependencies
-      # CORRECCIÓN: Respetamos las mayúsculas exactas "UseManagment.UI"
       working-directory: ./UseManagment.UI
       run: npm ci --legacy-peer-deps
 
@@ -53,4 +54,6 @@ jobs:
       run: npm run build -- --configuration production
 
     - name: Docker Build (Frontend)
-      run: docker build . -f ./UseManagment.UI/Dockerfile -t mi-app-frontend:latest
+      # CORRECCIÓN CRÍTICA:
+      # El contexto es './UseManagment.UI'. Docker buscará el package.json AHÍ dentro.
+      run: docker build ./UseManagment.UI -t mi-app-frontend:latest

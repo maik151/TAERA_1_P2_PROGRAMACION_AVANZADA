@@ -2,19 +2,20 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copiamos el SLN correcto
+# Como el contexto ahora es la carpeta Taller_REST_API, el SLN está en la raíz del contexto
 COPY *.sln .
 
-# IMPORTANTE: Asumo que dentro de la carpeta "Taller_REST_API" (Captura 1)
-# hay OTRA carpeta llamada "Taller_REST_API" con el .csproj.
-# Si el csproj tiene otro nombre, ajusta la línea de abajo.
+# Copiamos el proyecto. 
+# Basado en tu captura, dentro de la carpeta Taller_REST_API hay OTRA carpeta Taller_REST_API
 COPY Taller_REST_API/*.csproj ./Taller_REST_API/
-# Si tienes tests, descomenta y ajusta:
-# COPY Taller_REST_API.Tests/*.csproj ./Taller_REST_API.Tests/
 
+# Restauramos
 RUN dotnet restore
 
+# Copiamos todo lo demás
 COPY . .
+
+# Publicamos
 WORKDIR "/src/Taller_REST_API"
 RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
 
@@ -25,5 +26,4 @@ EXPOSE 8080
 EXPOSE 80
 
 COPY --from=build /app/publish .
-# El nombre de la DLL suele ser el nombre del proyecto
 ENTRYPOINT ["dotnet", "Taller_REST_API.dll"]
