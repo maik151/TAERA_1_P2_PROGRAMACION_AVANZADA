@@ -1,0 +1,35 @@
+# ETAPA 1: Construcción (Build)
+# Usamos la imagen SDK completa para compilar
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copiamos el archivo de solución y los proyectos para restaurar dependencias primero
+# (Esto optimiza la caché de Docker)
+COPY *.sln .
+COPY REST_GestionUsuarios/*.csproj ./REST_GestionUsuarios/
+# Si tienes carpeta de Tests y quieres copiarla para que no falle el restore:
+COPY REST_GestionUsuarios.Tests/*.csproj ./REST_GestionUsuarios.Tests/
+
+# Restauramos las dependencias
+RUN dotnet restore
+
+# Copiamos todo el resto del código fuente
+COPY . .
+
+# Publicamos la aplicación en modo Release
+WORKDIR "/src/REST_GestionUsuarios"
+RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
+
+# ETAPA 2: Ejecución (Runtime)
+# Usamos la imagen ASP.NET Core (más ligera, solo para correr la app)
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+EXPOSE 8080
+EXPOSE 80
+
+# Copiamos los binarios compilados de la etapa anterior
+COPY --from=build /app/publish .
+
+# Punto de entrada: Ejecuta la DLL del proyecto
+# IMPORTANTE: Asegúrate de que "REST_GestionUsuarios.dll" coincida con el nombre de tu proyecto
+ENTRYPOINT ["dotnet", "REST_GestionUsuarios.dll"]
