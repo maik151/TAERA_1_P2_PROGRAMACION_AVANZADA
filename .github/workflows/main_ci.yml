@@ -19,17 +19,18 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Restore dependencies
-      run: dotnet restore ./Taller_REST_API/REST_GestionUsuarios.sln
+      # CORRECCIÓN: Usamos el nombre real de tu solución y la carpeta contenedora
+      run: dotnet restore ./Taller_REST_API/Taller_REST_API.sln
       
     - name: Build API
-      run: dotnet build ./Taller_REST_API/REST_GestionUsuarios.sln --no-restore --configuration Release
+      run: dotnet build ./Taller_REST_API/Taller_REST_API.sln --no-restore --configuration Release
       
     - name: Run Unit Tests
-      run: dotnet test ./Taller_REST_API/REST_GestionUsuarios.sln --no-build --verbosity normal
+      run: dotnet test ./Taller_REST_API/Taller_REST_API.sln --no-build --verbosity normal
       
     - name: Docker Build (Backend)
-      # Construye la imagen usando el Dockerfile que ya tienes en el backend
-      run: docker build . -f ./Taller_REST_API/Dockerfile -t mi-app-backend:latest
+      # CORRECCIÓN: Apuntamos al archivo DockerFile (con F mayúscula) dentro de la carpeta
+      run: docker build . -f ./Taller_REST_API/DockerFile -t mi-app-backend:latest
 
   # --- JOB 2: FRONTEND ---
   build-frontend:
@@ -43,13 +44,13 @@ jobs:
         node-version: '20'
         
     - name: Install Dependencies
-      working-directory: ./use-managment.ui
+      # CORRECCIÓN: Respetamos las mayúsculas exactas "UseManagment.UI"
+      working-directory: ./UseManagment.UI
       run: npm ci --legacy-peer-deps
 
     - name: Build Angular App
-      working-directory: ./use-managment.ui
+      working-directory: ./UseManagment.UI
       run: npm run build -- --configuration production
 
     - name: Docker Build (Frontend)
-      # Construye la imagen usando el Dockerfile que crearemos en el paso 3
-      run: docker build . -f ./use-managment.ui/Dockerfile -t mi-app-frontend:latest
+      run: docker build . -f ./UseManagment.UI/Dockerfile -t mi-app-frontend:latest

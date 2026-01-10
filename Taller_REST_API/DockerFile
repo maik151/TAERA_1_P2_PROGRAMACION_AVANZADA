@@ -1,35 +1,29 @@
-# ETAPA 1: Construcción (Build)
-# Usamos la imagen SDK completa para compilar
+# ETAPA 1: Construcción
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copiamos el archivo de solución y los proyectos para restaurar dependencias primero
-# (Esto optimiza la caché de Docker)
+# Copiamos el SLN correcto
 COPY *.sln .
-COPY REST_GestionUsuarios/*.csproj ./REST_GestionUsuarios/
-# Si tienes carpeta de Tests y quieres copiarla para que no falle el restore:
-COPY REST_GestionUsuarios.Tests/*.csproj ./REST_GestionUsuarios.Tests/
 
-# Restauramos las dependencias
+# IMPORTANTE: Asumo que dentro de la carpeta "Taller_REST_API" (Captura 1)
+# hay OTRA carpeta llamada "Taller_REST_API" con el .csproj.
+# Si el csproj tiene otro nombre, ajusta la línea de abajo.
+COPY Taller_REST_API/*.csproj ./Taller_REST_API/
+# Si tienes tests, descomenta y ajusta:
+# COPY Taller_REST_API.Tests/*.csproj ./Taller_REST_API.Tests/
+
 RUN dotnet restore
 
-# Copiamos todo el resto del código fuente
 COPY . .
-
-# Publicamos la aplicación en modo Release
-WORKDIR "/src/REST_GestionUsuarios"
+WORKDIR "/src/Taller_REST_API"
 RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
 
-# ETAPA 2: Ejecución (Runtime)
-# Usamos la imagen ASP.NET Core (más ligera, solo para correr la app)
+# ETAPA 2: Ejecución
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 80
 
-# Copiamos los binarios compilados de la etapa anterior
 COPY --from=build /app/publish .
-
-# Punto de entrada: Ejecuta la DLL del proyecto
-# IMPORTANTE: Asegúrate de que "REST_GestionUsuarios.dll" coincida con el nombre de tu proyecto
-ENTRYPOINT ["dotnet", "REST_GestionUsuarios.dll"]
+# El nombre de la DLL suele ser el nombre del proyecto
+ENTRYPOINT ["dotnet", "Taller_REST_API.dll"]
