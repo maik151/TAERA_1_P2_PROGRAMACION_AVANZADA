@@ -2,19 +2,21 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copiamos el SLN (que ahora debería llamarse igual o estar en esta carpeta)
-COPY *.sln .
+# 1. Copiamos el archivo de solución
+COPY REST_GestionUsuarios.sln ./
 
-# Copiamos el proyecto usando el nuevo nombre de carpeta
-COPY REST_GestionUsuarios/*.csproj ./REST_GestionUsuarios/
+# 2. CREAMOS las carpetas para que coincidan con la estructura del SLN
+# Y copiamos los archivos .csproj individualmente
+COPY REST_GestionUsuarios/REST_GestionUsuarios.csproj ./REST_GestionUsuarios/
+COPY REST_GestionUsuarios.Tests/REST_GestionUsuarios.Tests.csproj ./REST_GestionUsuarios.Tests/
 
-# Restauramos dependencias
+# 3. Ahora el restore encontrará todos los proyectos mencionados en el .sln
 RUN dotnet restore
 
-# Copiamos el resto del código
+# 4. Copiamos el resto del código fuente
 COPY . .
 
-# Publicamos la aplicación
+# 5. Publicamos la API
 WORKDIR "/src/REST_GestionUsuarios"
 RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
 
@@ -25,5 +27,4 @@ EXPOSE 8080
 EXPOSE 80
 
 COPY --from=build /app/publish .
-# Asegúrate de que el nombre del proyecto genere un .dll con este nombre
 ENTRYPOINT ["dotnet", "REST_GestionUsuarios.dll"]
