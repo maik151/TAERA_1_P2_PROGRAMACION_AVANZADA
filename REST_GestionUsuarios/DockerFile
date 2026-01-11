@@ -1,30 +1,46 @@
-# ETAPA 1: Construcción
+# ETAPA 1: Construcción (Build)
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# 1. Copiamos el archivo de solución
+# 1. Copiamos la solución y los proyectos para restaurar dependencias (Caché de Docker)
 COPY REST_GestionUsuarios.sln ./
-
-# 2. CREAMOS las carpetas para que coincidan con la estructura del SLN
-# Y copiamos los archivos .csproj individualmente
 COPY REST_GestionUsuarios/REST_GestionUsuarios.csproj ./REST_GestionUsuarios/
 COPY REST_GestionUsuarios.Tests/REST_GestionUsuarios.Tests.csproj ./REST_GestionUsuarios.Tests/
 
-# 3. Ahora el restore encontrará todos los proyectos mencionados en el .sln
 RUN dotnet restore
 
-# 4. Copiamos el resto del código fuente
+# 2. Copiamos TODO el código fuente
+# Esto incluye la carpeta Infraestructure/OracleWallet
 COPY . .
 
-# 5. Publicamos la API
+# 3. Publicamos la aplicación
+# Usamos el flag para asegurar que no se genere un ejecutable de host innecesario
 WORKDIR "/src/REST_GestionUsuarios"
 RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
 
-# ETAPA 2: Ejecución
+
+# ETAPA 2: Ejecución (Runtime)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 80
 
+# 4. Instalación de dependencias de Oracle para Linux (libaio)
+USER root
+RUN apt-get update && apt-get install -y --no-install-recommends libaio1 && \
+    rm -rf /var/lib/apt/lists/*
+
+# 5. Parches de seguridad OpenSSL para compatibilidad con TLS de Oracle Cloud
+RUN sed -i 's/MinProtocol = TLSv1.2/MinProtocol = TLSv1.1/g' /etc/ssl/openssl.cnf && \
+    sed -i 's/CipherString = DEFAULT@SECLEVEL=2/CipherString = DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
+
+# 6. Copiamos los artefactos publicados desde la etapa de construcción
 COPY --from=build /app/publish .
+
+# 7. Verificación de seguridad: Comprobamos que el Wallet existe en el contenedor
+# Esto aparecerá en tus logs de Render para confirmar la ruta
+RUN ls -d Infraestructure/OracleWallet && ls Infraestructure/OracleWallet
+
+# 8. Configuración de red y ejecución
+ENV ASPNETCORE_URLS=http://+:8080
+EXPOSE 8080
+
 ENTRYPOINT ["dotnet", "REST_GestionUsuarios.dll"]
