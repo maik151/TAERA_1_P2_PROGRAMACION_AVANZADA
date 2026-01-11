@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 jobs:
-  # --- JOB 1: BACKEND ---
+  # --- JOB 1: BACKEND (ACTUALIZADO) ---
   build-backend:
     runs-on: ubuntu-latest
     steps:
@@ -19,22 +19,20 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Restore dependencies
-      # Restauramos apuntando al archivo SLN específico
-      run: dotnet restore ./Taller_REST_API/Taller_REST_API.sln
+      # Apuntamos a la nueva carpeta
+      run: dotnet restore ./REST_GestionUsuarios/REST_GestionUsuarios.sln
       
     - name: Build API
-      run: dotnet build ./Taller_REST_API/Taller_REST_API.sln --no-restore --configuration Release
+      run: dotnet build ./REST_GestionUsuarios/REST_GestionUsuarios.sln --no-restore --configuration Release
       
     - name: Run Unit Tests
-      run: dotnet test ./Taller_REST_API/Taller_REST_API.sln --no-build --verbosity normal
+      run: dotnet test ./REST_GestionUsuarios/REST_GestionUsuarios.sln --no-build --verbosity normal
       
     - name: Docker Build (Backend)
-      # CORRECCIÓN CRÍTICA:
-      # 1. El contexto de construcción es './Taller_REST_API' (la carpeta del proyecto)
-      # 2. Apuntamos al archivo DockerFile específico (respetando la F mayúscula)
-      run: docker build ./Taller_REST_API -f ./Taller_REST_API/DockerFile -t mi-app-backend:latest
+      # Contexto y Dockerfile actualizados a la nueva carpeta
+      run: docker build ./REST_GestionUsuarios -f ./REST_GestionUsuarios/DockerFile -t mi-app-backend:latest
 
-  # --- JOB 2: FRONTEND ---
+  # --- JOB 2: FRONTEND (SE MANTIENE IGUAL) ---
   build-frontend:
     runs-on: ubuntu-latest
     steps:
@@ -54,6 +52,4 @@ jobs:
       run: npm run build -- --configuration production
 
     - name: Docker Build (Frontend)
-      # CORRECCIÓN CRÍTICA:
-      # El contexto es './UseManagment.UI'. Docker buscará el package.json AHÍ dentro.
       run: docker build ./UseManagment.UI -t mi-app-frontend:latest

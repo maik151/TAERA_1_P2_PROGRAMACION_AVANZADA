@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REST_GestionUsuarios", "REST_GestionUsuarios\REST_GestionUsuarios.csproj", "{BF918CA9-EA87-4F7F-9D15-B12F0B5173EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REST_GestionUsuarios.Tests", "REST_GestionUsuarios.Tests\REST_GestionUsuarios.Tests.csproj", "{AEC2A3F0-B2C0-4461-936E-CB4D09C897EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF918CA9-EA87-4F7F-9D15-B12F0B5173EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF918CA9-EA87-4F7F-9D15-B12F0B5173EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF918CA9-EA87-4F7F-9D15-B12F0B5173EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF918CA9-EA87-4F7F-9D15-B12F0B5173EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEC2A3F0-B2C0-4461-936E-CB4D09C897EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEC2A3F0-B2C0-4461-936E-CB4D09C897EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEC2A3F0-B2C0-4461-936E-CB4D09C897EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEC2A3F0-B2C0-4461-936E-CB4D09C897EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {74D37026-F21B-4868-933B-7C63DA630C3C}
+	EndGlobalSection
+EndGlobal

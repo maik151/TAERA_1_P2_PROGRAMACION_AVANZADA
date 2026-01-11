@@ -1,0 +1,29 @@
+# ETAPA 1: Construcción
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+# Copiamos el SLN (que ahora debería llamarse igual o estar en esta carpeta)
+COPY *.sln .
+
+# Copiamos el proyecto usando el nuevo nombre de carpeta
+COPY REST_GestionUsuarios/*.csproj ./REST_GestionUsuarios/
+
+# Restauramos dependencias
+RUN dotnet restore
+
+# Copiamos el resto del código
+COPY . .
+
+# Publicamos la aplicación
+WORKDIR "/src/REST_GestionUsuarios"
+RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
+
+# ETAPA 2: Ejecución
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
+WORKDIR /app
+EXPOSE 8080
+EXPOSE 80
+
+COPY --from=build /app/publish .
+# Asegúrate de que el nombre del proyecto genere un .dll con este nombre
+ENTRYPOINT ["dotnet", "REST_GestionUsuarios.dll"]
