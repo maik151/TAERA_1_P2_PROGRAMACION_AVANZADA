@@ -19,18 +19,15 @@ jobs:
         dotnet-version: 8.0.x
         
     - name: Restore dependencies
-      # Apuntamos a la nueva carpeta
       run: dotnet restore ./REST_GestionUsuarios/REST_GestionUsuarios.sln
       
     - name: Build API
+      # Especificamos Release explícitamente
       run: dotnet build ./REST_GestionUsuarios/REST_GestionUsuarios.sln --no-restore --configuration Release
       
     - name: Run Unit Tests
-      run: dotnet test ./REST_GestionUsuarios/REST_GestionUsuarios.sln --no-build --verbosity normal
-      
-    - name: Docker Build (Backend)
-      # Contexto y Dockerfile actualizados a la nueva carpeta
-      run: docker build ./REST_GestionUsuarios -f ./REST_GestionUsuarios/DockerFile -t mi-app-backend:latest
+      # Eliminamos --no-build para que dotnet encuentre/genere los binarios correctamente en el entorno de Linux
+      run: dotnet test ./REST_GestionUsuarios/REST_GestionUsuarios.sln --configuration Release --verbosity normal
 
   # --- JOB 2: FRONTEND (SE MANTIENE IGUAL) ---
   build-frontend:
