@@ -1,39 +1,41 @@
-# ETAPA 1: Construcción (Build)
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+# ETAPA 1: Compilación (La llamamos 'compilacion' para evitar errores circulares)
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS compilacion
 WORKDIR /src
 
-# 1. Copiamos la solución y los proyectos para restaurar dependencias (Caché de Docker)
+# Copiamos archivos de la solución y proyectos
 COPY REST_GestionUsuarios.sln ./
 COPY REST_GestionUsuarios/REST_GestionUsuarios.csproj ./REST_GestionUsuarios/
 COPY REST_GestionUsuarios.Tests/REST_GestionUsuarios.Tests.csproj ./REST_GestionUsuarios.Tests/
 
+# Restauramos dependencias
 RUN dotnet restore
 
-# 2. Copiamos TODO el código fuente
-# Esto incluye la carpeta Infraestructure/OracleWallet
+# Copiamos todo el código (Aquí entra la carpeta Infraestructure)
 COPY . .
 
-# 3. Publicamos la aplicación
-# Usamos el flag para asegurar que no se genere un ejecutable de host innecesario
+# Publicamos la aplicación
 WORKDIR "/src/REST_GestionUsuarios"
-RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish -c Release -o /app/out /p:UseAppHost=false
 
 
-#FROM mcr.microsoft.com/dotnet/aspnet:8.0
+# ETAPA 2: Ejecución (Runtime)
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 
+# Instalación de dependencias de Oracle para Linux
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends libaio1 && \
     rm -rf /var/lib/apt/lists/*
 
+# Parches de seguridad OpenSSL
 RUN sed -i 's/MinProtocol = TLSv1.2/MinProtocol = TLSv1.1/g' /etc/ssl/openssl.cnf && \
     sed -i 's/CipherString = DEFAULT@SECLEVEL=2/CipherString = DEFAULT@SECLEVEL=1/g' /etc/ssl/openssl.cnf
 
-# Copiamos los archivos publicados
-COPY --from=build /app/publish .
+# COPIA CRÍTICA: Traemos los archivos de la etapa 'compilacion'
+COPY --from=compilacion /app/out .
 
-# CAMBIO AQUÍ: Listar todo el contenido de /app para ver dónde quedó la carpeta
-RUN ls -R /app
+# Verificamos si la carpeta existe (Si el .csproj está bien, esto no fallará)
+RUN ls -R /app/Infraestructure/OracleWallet || echo "La carpeta no está en la raíz, buscando..."
 
 ENV ASPNETCORE_URLS=http://+:8080
 EXPOSE 8080
