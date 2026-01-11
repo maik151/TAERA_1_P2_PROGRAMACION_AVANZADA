@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { environment } from '../../../environments/environment';
 import { User, Role } from '../models/api-models'; 
 
 @Injectable({
@@ -10,7 +10,8 @@ import { User, Role } from '../models/api-models';
 export class UserApiService {
   
   private http = inject(HttpClient);
-  private readonly apiUrl = 'https://localhost:7179/api'; 
+  //private readonly apiUrl = 'https://localhost:7179/api'; 
+  private readonly apiUrl = `${environment.apiUrl}`;
 
   constructor() { }
 
